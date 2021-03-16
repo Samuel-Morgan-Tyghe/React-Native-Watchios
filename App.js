@@ -1,6 +1,6 @@
 // React Native Counter Example using Hooks!
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import RNLocation from 'react-native-location';
 import Geolocation from '@react-native-community/geolocation';
@@ -23,17 +23,24 @@ const App = () => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('ERROR');
 
-  Geolocation.watchPosition(
-    data => setGeoData(data),
-    error => console.log(error),
-    {
-      timeout: 3000,
-      maximumAge: 0,
-      enableHighAccuracy: true,
-      distanceFilter: 10,
-      // useSignificantChanges: true,
-    },
-  );
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimesCalled(prevTimesCalled => prevTimesCalled + 1);
+      Geolocation.watchPosition(
+        data => setGeoData(data),
+        error => console.log(error),
+        {
+          timeout: 3000,
+          maximumAge: 0,
+          enableHighAccuracy: true,
+          distanceFilter: 10,
+          // useSignificantChanges: true,
+        },
+      );
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const limiter = new Bottleneck({
     maxConcurrent: 1,
@@ -95,7 +102,7 @@ const App = () => {
       } else {
         setVibrate('Vibration not supported');
       }
-      setTimesCalled(timesCalled + 1);
+      // setTimesCalled(timesCalled + 1);
 
       compareSpeed();
     }
