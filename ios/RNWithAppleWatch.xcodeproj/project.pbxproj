@@ -91,7 +91,6 @@
 				5629349CC20C5621A86DA733 /* Pods-RNWithAppleWatch-RNWithAppleWatchTests.debug.xcconfig */,
 				1F97B7F493BCD831FB0F736F /* Pods-RNWithAppleWatch-RNWithAppleWatchTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -485,6 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 84SF39RDKF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RNWithAppleWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,6 +511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 84SF39RDKF;
 				INFOPLIST_FILE = RNWithAppleWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
