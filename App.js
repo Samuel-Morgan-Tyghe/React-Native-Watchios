@@ -73,7 +73,7 @@ const App = () => {
           setOverSpeedLimit(true);
           Vibration.vibrate()
         } else {
-          Vibration.vibrate(10000)
+          // Vibration.vibrate(10000)
 
           setOverSpeedLimit(false);
         }
