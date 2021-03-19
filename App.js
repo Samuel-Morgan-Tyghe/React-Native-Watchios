@@ -2,11 +2,8 @@
 
 import React, {useState, useEffect} from 'react';
 import {View, Text, Button, StyleSheet, Vibration} from 'react-native';
-import RNLocation from 'react-native-location';
 import Geolocation from '@react-native-community/geolocation';
-import Bottleneck from 'bottleneck';
 import axios from 'axios';
-import rateLimit from 'axios-rate-limit';
 
 const App = () => {
   const [timesCalled, setTimesCalled] = useState(0);
@@ -71,7 +68,7 @@ const App = () => {
         setSpeedDifference(currentSpeed - speedLimit);
         if (currentSpeed > speedLimit) {
           setOverSpeedLimit(true);
-          Vibration.vibrate()
+          Vibration.vibrate();
         } else {
           // Vibration.vibrate(10000)
 
@@ -102,9 +99,10 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text
-        style={overSpeedLimit ? styles.overSpeedLimit : styles.underSpeedLimit }>
+        style={overSpeedLimit ? styles.overSpeedLimit : styles.underSpeedLimit}>
         {overSpeedLimit ? '+' : ''}
-        {speedDifference}<Text style={{fontSize:20}}>MPH</Text>
+        {speedDifference}
+        <Text style={{fontSize: 20}}>MPH</Text>
       </Text>
       {/* <Text>{locationText}</Text> */}
       <Text>lat: {latitude}</Text>
@@ -137,26 +135,25 @@ const styles = StyleSheet.create({
   underSpeedLimit: {
     fontSize: 80,
     backgroundColor: 'green',
-    color : 'black' ,
-    borderRadius:50,
+    color: 'black',
+    borderRadius: 50,
     borderWidth: 10,
     borderColor: 'white',
 
-    overflow:'hidden',
+    overflow: 'hidden',
     padding: 40,
     margin: 20,
   },
   overSpeedLimit: {
     fontSize: 80,
     backgroundColor: 'red',
-    color : 'white' ,
-    borderRadius:50,
+    color: 'white',
+    borderRadius: 50,
     borderWidth: 10,
     borderColor: 'white',
-    overflow:'hidden',
+    overflow: 'hidden',
     padding: 40,
     margin: 20,
-
   },
 });
 
